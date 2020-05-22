@@ -12,11 +12,13 @@ app.use(cors({ origin: true }));
 // Receive post request with Express Endpoint
 app.post("/webhooks", (req: any, res: any) => {
   const incomingWebhook = req.body;
+  console.log(incomingWebhook);
 
   // Decrypt webhook if you set up encryption
   decryptWebhookTest(incomingWebhook)
     .then((webhook) => {
       // Do what you want to do with the webhook
+      console.log(webhook);
     })
     .catch((err: any) => console.log(err));
 
